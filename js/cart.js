@@ -1,12 +1,13 @@
 const verCarrito = document.getElementById('cartBtn');
 const modalHeader = document.createElement("div");
-const cartContainer = document.getElementById('modal-container'); 
+const cartContainer = document.getElementById('cartModal'); 
 
 let isCartVisible = false; // Variable global para rastrear el estado del modal del carrito
 
+
+
 // Función para mostrar u ocultar el carrito
-function toggleCart() {
-    const cartContainer = document.getElementById('modal-container');
+function toggleCart() {    
 
     if (!isCartVisible) {
         showCart(cartContainer);
@@ -16,6 +17,7 @@ function toggleCart() {
         isCartVisible = false;
     }
 }
+
 
 // Llamada a la función toggleCart() al hacer clic en el botón del carrito
 verCarrito.addEventListener('click', toggleCart);
@@ -43,8 +45,9 @@ function showCart(cartContainer) {
             <div>Total: $${productTotal.toFixed(2)}</div>
             <img src="${product.image}" class="img-fluid mb-3" alt="${product.title}">
             <button onclick="addQuantity(${product.id})">+</button>
-            <button onclick="removeQuantity(${product.id})">-</button>
+            <button onclick="removeQuantity(${product.id})" ${product.stock === 1 ? 'disabled' : ''}>-</button>
             <button onclick="removeFromCart(${product.id})">Eliminar</button>
+            
         `;
         cartContainer.appendChild(productElement);
     }
@@ -53,6 +56,26 @@ function showCart(cartContainer) {
     let totalElement = document.createElement('div');
     totalElement.innerHTML = `<strong>Total: $${totalPrice.toFixed(2)}</strong>`;
     cartContainer.appendChild(totalElement);
+
+    let limpiarCarrito = document.createElement('button'); // Crear un elemento de botón
+    limpiarCarrito.classList.add('btn', 'btn-danger'); // Agregar clases de estilo de Bootstrap
+    limpiarCarrito.id = 'clearCartButton'; // Asignar un ID único al botón
+    limpiarCarrito.textContent = 'Limpiar Carrito'; // Asignar el texto al botón
+    
+    // Agregar un event listener para llamar a la función clearCart cuando se haga clic en el botón
+    limpiarCarrito.addEventListener('click', clearCart);
+    
+    // Agregar el botón al contenedor del modal
+    cartContainer.appendChild(limpiarCarrito);
+
+    let comprarCarrito = document.createElement('button'); // Crear un elemento de botón
+    comprarCarrito.classList.add('btn', 'btn-success'); // Agregar clases de estilo de Bootstrap
+    comprarCarrito.id = 'buyCartButton'; // Asignar un ID único al botón
+    comprarCarrito.textContent = 'Comprar Carrito'; // Asignar el texto al botón    
+    // Agregar un event listener para llamar a la función clearCart cuando se haga clic en el botón
+    comprarCarrito.addEventListener('click', clearCart);
+    cartContainer.appendChild(comprarCarrito);
+    
 
     cartContainer.style.display = 'block'; // Mostrar el modal del carrito
 }

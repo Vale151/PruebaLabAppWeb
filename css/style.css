@@ -79,5 +79,38 @@ p {
     height: 70%; /* Esto mantendrá la proporción de la imagen (en auto) */
 }
 
+/* Estilos para el modal del carrito */
+#cartModal {
+    display: none; /* Por defecto, el modal está oculto */
+    position: fixed; /* Posición fija para mantenerlo en la misma ubicación al hacer scroll */
+    top: 0; /* Alineado en la parte superior */
+    right: 0; /* Alineado a la derecha */
+    bottom: 0; /* Extiende hasta la parte inferior de la ventana */
+    width: 300px; /* Ancho del modal */
+    background-color: #fff; /* Color de fondo del modal */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    z-index: 9999; /* Z-index alto para asegurar que esté por encima de otros elementos */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido del modal es demasiado largo */
+}
+
+/* Estilos para el contenido del modal */
+#cartModal .modal-content {
+    padding: 20px; /* Espaciado interno */
+}
+
+/* Estilos para el botón de cerrar */
+#cartModal .close {
+    position: absolute; /* Posición absoluta para estar alineado correctamente */
+    top: 10px; /* Alineado en la parte superior */
+    right: 10px; /* Alineado a la derecha */
+    cursor: pointer; /* Cursor de apuntar */
+    font-size: 24px; /* Tamaño de fuente */
+    color: #333; /* Color del icono de cierre */
+}
+
+
+
+
+
 
 
