@@ -6,33 +6,39 @@ function addToCart(id)
                 {
                     product.stock = 1;
                     localStorage.setItem(product.id, JSON.stringify(product));
+                    showCart(cartContainer);
                 });
 };
 
-//Botón finalizar compra/limpiar carrito
+//Bot n finalizar compra/limpiar carrito
 function clearCart()
 {
     localStorage.clear();
+    showCart(cartContainer);    
+    
 };
 
-//Botón sumar cantidad
+//Bot n sumar cantidad
 function addQuantity(id)
 {
     let item = JSON.parse(localStorage.getItem(id));
     item.stock++;
     localStorage.setItem(id, JSON.stringify(item));
+    showCart(cartContainer); // Llama a showCart para actualizar el contenido del carrito
 }
 
-//Botón restar cantidad
+//Bot n restar cantidad
 function removeQuantity(id)
 {
     let item = JSON.parse(localStorage.getItem(id));
     item.stock--;
     localStorage.setItem(id, JSON.stringify(item));
+    showCart(cartContainer);
 }
 
-//Botón eliminar articulo
+//Bot n eliminar articulo
 function removeFromCart(id)
 {
     localStorage.removeItem(id);
+    showCart(cartContainer); // Llama a showCart para actualizar el contenido del carrito
 }
