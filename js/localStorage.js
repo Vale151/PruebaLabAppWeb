@@ -1,13 +1,16 @@
-function addToCart(id)
-{
+function addToCart(id) {
     fetch(`https://fakestoreapi.com/products/${id}`)
         .then(response => response.json())
-            .then(product => 
-                {
-                    product.stock = 1;
-                    localStorage.setItem(product.id, JSON.stringify(product));
-                    showCart(cartContainer);
-                });
+        .then(product => {
+            product.stock = 1;
+            localStorage.setItem(product.id, JSON.stringify(product));
+            Swal.fire({
+                title: "Producto agregado correctamente!",
+                text: "",
+                icon: "success"
+            });
+            productModal.style.display = 'none';
+        });
 };
 
 //Bot n finalizar compra/limpiar carrito
