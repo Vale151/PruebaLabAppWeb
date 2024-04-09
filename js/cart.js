@@ -4,11 +4,8 @@ const cartContainer = document.getElementById('cartModal');
 
 let isCartVisible = false; // Variable global para rastrear el estado del modal del carrito
 
-
-
 // Función para mostrar u ocultar el carrito
 function toggleCart() {    
-
     if (!isCartVisible) {
         showCart(cartContainer);
         isCartVisible = true;
@@ -17,7 +14,6 @@ function toggleCart() {
         isCartVisible = false;
     }
 }
-
 
 // Llamada a la función toggleCart() al hacer clic en el botón del carrito
 verCarrito.addEventListener('click', toggleCart);
@@ -47,7 +43,6 @@ function showCart(cartContainer) {
             <button onclick="addQuantity(${product.id})">+</button>
             <button onclick="removeQuantity(${product.id})" ${product.stock === 1 ? 'disabled' : ''}>-</button>
             <button onclick="removeFromCart(${product.id})">Eliminar</button>
-            
         `;
         cartContainer.appendChild(productElement);
     }
@@ -57,25 +52,40 @@ function showCart(cartContainer) {
     totalElement.innerHTML = `<strong>Total: $${totalPrice.toFixed(2)}</strong>`;
     cartContainer.appendChild(totalElement);
 
-    let limpiarCarrito = document.createElement('button'); // Crear un elemento de botón
-    limpiarCarrito.classList.add('btn', 'btn-danger'); // Agregar clases de estilo de Bootstrap
-    limpiarCarrito.id = 'clearCartButton'; // Asignar un ID único al botón
-    limpiarCarrito.textContent = 'Limpiar Carrito'; // Asignar el texto al botón
-    
-    // Agregar un event listener para llamar a la función clearCart cuando se haga clic en el botón
-    limpiarCarrito.addEventListener('click', clearCart);
-    
-    // Agregar el botón al contenedor del modal
+    let limpiarCarrito = document.createElement('button');
+    limpiarCarrito.classList.add('btn', 'btn-danger');
+    limpiarCarrito.textContent = 'Limpiar Carrito';
+    limpiarCarrito.addEventListener('click', () => {
+        clearCart();
+        Swal.fire({
+            title: "Compra cancelada",
+            text: "",
+            icon: "error"
+        });
+        toggleCart(); 
+    });
     cartContainer.appendChild(limpiarCarrito);
 
-    let comprarCarrito = document.createElement('button'); // Crear un elemento de botón
-    comprarCarrito.classList.add('btn', 'btn-success'); // Agregar clases de estilo de Bootstrap
-    comprarCarrito.id = 'buyCartButton'; // Asignar un ID único al botón
-    comprarCarrito.textContent = 'Comprar Carrito'; // Asignar el texto al botón    
-    // Agregar un event listener para llamar a la función clearCart cuando se haga clic en el botón
-    comprarCarrito.addEventListener('click', clearCart);
+    let comprarCarrito = document.createElement('button');
+    comprarCarrito.classList.add('btn', 'btn-success');
+    comprarCarrito.textContent = 'Finalizar compra';
+    comprarCarrito.addEventListener('click', () => {
+        clearCart();
+        Swal.fire({
+            title: "Compra finalizada",
+            text: "",
+            icon: "success"
+        });
+        toggleCart(); 
+    });
     cartContainer.appendChild(comprarCarrito);
-    
 
-    cartContainer.style.display = 'block'; // Mostrar el modal del carrito
+    cartContainer.style.display = 'block'; 
 }
+
+// Función para limpiar el carrito (eliminar todos los productos)
+function clearCart() {
+    localStorage.clear();
+    showCart(cartContainer); // Vuelve a mostrar el carrito vacío
+}
+      
