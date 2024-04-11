@@ -1,3 +1,4 @@
+/* Estilos generales */
 * {
     font-family: 'Rubik', sans-serif;
 }
@@ -139,6 +140,63 @@ nav {
 
 .border-card {
     border: 1px solid #89aae6;
+}
+
+/* Estilos para los elementos dentro del carrito */
+#cartModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    max-height: 80vh;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    overflow-y: auto;
+    border: 2px solid black;
+    border-radius: 12px;
+}
+
+/* Estilos para las imágenes en el carrito */
+#cartModal img {
+    width: 25%;
+    /* Reducir tamaño de las imágenes al 65% */
+    border-radius: 8px;
+    /* Esquinas redondeadas en las imágenes */
+}
+
+/* Estilos para los botones dentro del carrito */
+#cartModal button {
+    margin-top: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    float: right;
+    /* Alinear los botones a la derecha */
+}
+
+/* Estilos para el botón "-" cuando está deshabilitado */
+#cartModal button[disabled] {
+    background-color: #ccc;
+    color: #333;
+}
+
+/* Estilos específicos para los botones del carrito */
+#cartModal #clearCartButton {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+
+
+#cartModal button#buyCartButton {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
 }
 
 .card-title {
