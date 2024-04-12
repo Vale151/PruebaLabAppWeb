@@ -10,6 +10,7 @@ function addToCart(id) {
                 icon: "success"
             });
             productModal.style.display = 'none';
+            showCartPrice()
         });
 };
 
@@ -18,7 +19,7 @@ function clearCart()
 {
     localStorage.clear();
     showCart(cartContainer);    
-    
+    showCartPrice();
 };
 
 //Boton sumar cantidad
@@ -28,6 +29,7 @@ function addQuantity(id)
     item.stock++;
     localStorage.setItem(id, JSON.stringify(item));
     showCart(cartContainer); // Llama a showCart para actualizar el contenido del carrito
+    showCartPrice();
 }
 
 //Boton restar cantidad
@@ -37,6 +39,7 @@ function removeQuantity(id)
     item.stock--;
     localStorage.setItem(id, JSON.stringify(item));
     showCart(cartContainer);
+    showCartPrice();
 }
 
 //Boton eliminar articulo
@@ -44,4 +47,5 @@ function removeFromCart(id)
 {
     localStorage.removeItem(id);
     showCart(cartContainer); // Llama a showCart para actualizar el contenido del carrito
+    showCartPrice();
 }

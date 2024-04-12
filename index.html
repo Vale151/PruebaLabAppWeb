@@ -14,43 +14,50 @@
     <header>
         <nav class="navbar">
             <div class="container">
-                <span class="navbar-brand">Lab App Web</span>
-                <button class="btn btn-outline-light" id="cartBtn">
-                    <i class="bi bi-cart"></i> Carrito
-                </button>
+                <img class="logo" src="./images/logoCuatro.png" alt="logo">
+                <div>
+                    <i class="fa-solid fa-gear fa-lg" style="color: #ffffff;"><span>Opciones</span></i>
+                    <i class="fa-solid fa-user fa-lg" style="color: #ffffff;"><span>Usuario</span></i>
+                    <button class="btn" id="cartBtn">
+                        <i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"><span class="cartTotal" id="cartTotal"></span></i>
+                    </button>
+                </div>
             </div>
         </nav>
     </header>
-    <div class="container mt-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="productList">
-            
-        </div>
-    </div>
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="modalContent">
+    <main>
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4" id="productList">
                 
             </div>
         </div>
-    </div>    
-<!-- Modal del carrito -->          
-<div id="cartModal" class="modal">        
-    <div class="modal-content">               
-        <span class="close">&times;</span>        
-        <div id="cartContent">
-            <!-- Aquí se mostrará el contenido del carrito -->            
-        </div>       
-
-    </div>
+        <div id="productModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="modalContent">
+                    
+                </div>
+            </div>
+        </div>    
+        <!-- Modal del carrito -->          
+        <div id="cartModal" class="modal">        
+            <div class="modal-content">               
+                <span class="close">&times;</span>        
+                <div id="cartContent">
+                    <!-- Aquí se mostrará el contenido del carrito -->            
+                </div>       
+            </div>
+        </div>
+    </main>
     <footer>
         <div class="container-footer">
             <span class="text-footer">© 2024 TP Laboratorio de Aplicaciones Web</span>
         </div>
     </footer>    
+    <script src="js/cart.js"></script>
     <script src="js/script.js"></script>
     <script src="js/localStorage.js"></script>
-    <script src="js/cart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/1c462f6145.js" crossorigin="anonymous"></script>
 </body>
 </html>

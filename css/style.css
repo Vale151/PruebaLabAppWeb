@@ -1,10 +1,11 @@
 /* Estilos generales */
 * {
     font-family: 'Rubik', sans-serif;
+    font-size: 16px;
 }
 
 body {
-    font-family: 'Rubik', sans-serif;
+    background-color: #f3f2ff;
 }
 
 .modal {
@@ -62,17 +63,20 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
 }
 
 .card-img-top {
-    width: 200px;
+    width: 60%;
     aspect-ratio: 1;
-    display: flex;
-    margin-top: 100px;
+    padding-top: 1rem;
 }
 
 .view-details {
-    margin-top: 50px;
     font-size: 1.25rem;
     padding: 10px 20px;
     border-radius: 8px;
@@ -80,6 +84,10 @@ body {
 
 .card-body {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .details-btn {
@@ -88,14 +96,13 @@ body {
     border: none;
     background-color: #168eca;
     color: #deecf4;
-    margin-top: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 8px;
 }
 
 .details-btn:hover {
-    background-color: #3685B5;
+    background-color: #061826;
 }
 
 footer {
@@ -127,6 +134,12 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .navbar-brand {
@@ -201,4 +214,21 @@ nav {
 
 .card-title {
     font-size: 16px;
+}
+
+.card-price {
+    font-size: 24px;
+}
+
+.logo {
+    width: 10%;
+}
+
+i {
+    padding: 6px 12px;
+}
+
+i span {
+    margin-left: 5px;
+    font-size: 12px;
 }

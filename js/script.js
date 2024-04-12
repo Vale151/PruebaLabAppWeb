@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const productList = document.getElementById('productList');
     const productModal = document.getElementById('productModal');
     const closeModalButton = productModal.querySelector('.close');
+    const cartTotal = document.getElementById('cartTotal');
 
     function displayProducts() {
         fetch('https://fakestoreapi.com/products')
@@ -12,11 +13,12 @@ document.addEventListener("DOMContentLoaded", function() {
             data.forEach(product => {
                 // Generar HTML de la tarjeta de producto
                 productCardsHTML += `
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                     <div class="card mb-4 d-flex align-items-center justify-content-center border-card">
                             <img src="${product.image}" class="card-img-top" alt="${product.title}">
                             <div class="card-body">
                                 <h5 class="card-title">${product.title}</h5>
+                                <h5 class="card-price">$ ${product.price}</h5>
                                 <button class="details-btn view-details" data-product-id="${product.id}">Ver Detalles</button>
                             </div>
                         </div>
@@ -53,10 +55,11 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error('Error al obtener los detalles del producto:', error));
     }
-
-    displayProducts();
     
     closeModalButton.addEventListener('click', function() {
         productModal.style.display = 'none';
     });
+
+    displayProducts();
+    showCartPrice();
 });

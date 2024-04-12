@@ -88,4 +88,17 @@ function clearCart() {
     localStorage.clear();
     showCart(cartContainer); // Vuelve a mostrar el carrito vacío
 }
-      
+
+function showCartPrice() {
+    let totalPrice = 0;
+
+    for (let i = 0; i < localStorage.length; i++) {
+        let itemId = localStorage.key(i);
+        let item = JSON.parse(localStorage.getItem(itemId));
+        let itemTotal = item.price * item.stock;
+
+        totalPrice += itemTotal;
+    }
+
+    cartTotal.innerText = `$${totalPrice.toFixed(2)}`;
+};
