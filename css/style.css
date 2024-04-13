@@ -170,11 +170,6 @@ header {
     border: 1px solid #168eca;
 }
 
-.modal-content {
-    position: relative;
-    padding: 20px;
-}
-
 .cart-modal img {
     width: 25%;
     border-radius: 8px;
