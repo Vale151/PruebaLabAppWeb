@@ -52,6 +52,17 @@ function showCart(cartContainer) {
     totalElement.innerHTML = `<strong>Total: $${totalPrice.toFixed(2)}</strong>`;
     cartContainer.appendChild(totalElement);
 
+    // Agrega el botón de cierre 'x' al encabezado del modal
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close');
+    closeButton.innerHTML = '&times;'; 
+    closeButton.addEventListener('click', () => {
+        cartContainer.style.display = 'none';
+        isCartVisible = false;
+    });
+    modalHeader.appendChild(closeButton);
+    cartContainer.prepend(modalHeader);
+
     let limpiarCarrito = document.createElement('button');
     limpiarCarrito.classList.add('btn', 'btn-danger');
     limpiarCarrito.textContent = 'Limpiar Carrito';
@@ -101,4 +112,4 @@ function showCartPrice() {
     }
 
     cartTotal.innerText = `$${totalPrice.toFixed(2)}`;
-};
+}

@@ -168,6 +168,7 @@ header {
     z-index: 1050;
     overflow-y: auto;
     border: 1px solid #168eca;
+    padding: 15px;
 }
 
 .cart-modal img {
