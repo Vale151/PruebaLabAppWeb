@@ -35,7 +35,7 @@ function showCart(cartContainer) {
         let productElement = document.createElement('div');
         productElement.classList.add('cart-item');
         productElement.innerHTML = `
-            <div>${product.title}</div>
+            <div><strong>${product.title}</strong></div>
             <div>Precio: $${product.price.toFixed(2)}</div>
             <div>Cantidad: ${product.stock}</div>
             <div>Total: $${productTotal.toFixed(2)}</div>

@@ -156,30 +156,33 @@ header {
 }
 
 /* Estilos para los elementos dentro del carrito */
-#cartModal {
+.cart-modal {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-    max-height: 80vh;
+    right: 0;
+    top: 55px;
+    bottom: 0;
+    width: 350px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1050;
     overflow-y: auto;
-    border: 2px solid black;
-    border-radius: 12px;
+    border: 1px solid #168eca;
 }
 
-/* Estilos para las imágenes en el carrito */
-#cartModal img {
+.modal-content {
+    position: relative;
+    padding: 20px;
+}
+
+.cart-modal img {
     width: 25%;
-    /* Reducir tamaño de las imágenes al 65% */
     border-radius: 8px;
-    /* Esquinas redondeadas en las imágenes */
+}
+
+.cart-item {
+    border-bottom: 1px solid #168eca;
+    padding: 5px;
 }
 
 /* Estilos para los botones dentro del carrito */
@@ -189,6 +192,7 @@ header {
     font-size: 14px;
     border-radius: 5px;
     float: right;
+    margin: 10px;
     /* Alinear los botones a la derecha */
 }
 
